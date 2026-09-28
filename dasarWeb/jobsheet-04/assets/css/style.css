@@ -1,0 +1,15 @@
+/* SIMPUS-Mini — override kecil di atas Bootstrap (#1d5b8a) */
+
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #a6d0ef !important;
+}
+
+button[type="submit"]:hover {
+    background-color: #1d5b8a !important;
+}
