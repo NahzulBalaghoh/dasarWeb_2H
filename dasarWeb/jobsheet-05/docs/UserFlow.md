@@ -1,0 +1,1 @@
+Petugas membuka halaman Login Petugas di SIMPUS-Mini → mengisi kolom [Username] → mengisi kolom [Password] → klik tombol [Masuk] → jika data benar, Petugas berhasil masuk ke sistem. Kalau Petugas belum punya akun, dia bisa klik link ["Belum punya akun? Daftar di sini"] untuk diarahkan ke halaman pendaftaran, alih-alih mengisi form login.

@@ -1,0 +1,46 @@
+/* SIMPUS-Mini — override kecil di atas Bootstrap (#1d5b8a) */
+
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #a6d0ef !important;
+}
+
+button[type="submit"]:hover {
+    background-color: #1d5b8a !important;
+}
+
+/* ===== Ditambahkan untuk Jobsheet 5: JavaScript DOM & Event ===== */
+
+/* Pesan error validasi form (dibuat & disisipkan oleh app.js) */
+.error {
+    display: block;
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Kolom pencarian real-time di halaman Daftar Buku/Anggota */
+.search-box {
+    margin-bottom: 1rem;
+}
+
+.search-box input {
+    max-width: 320px;
+}
+
+
+@media (max-width: 767.98px) {
+    #navMenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+    #navMenu.nav-open {
+        max-height: 300px;
+    }
+}
