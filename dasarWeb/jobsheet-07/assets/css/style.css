@@ -1,0 +1,97 @@
+/* SIMPUS-Mini */
+
+:root {
+    --bs-primary: #9370db;
+    --bs-primary-rgb: 147, 112, 219;
+    --bs-link-color: #7e5bc4;
+    --bs-link-color-rgb: 126, 91, 196;
+    --bs-link-hover-color: #6a49ab;
+    --bs-link-hover-color-rgb: 106, 73, 171;
+}
+ 
+.btn-primary {
+    --bs-btn-bg: #9370db;
+    --bs-btn-border-color: #9370db;
+    --bs-btn-hover-bg: #7e5bc4;
+    --bs-btn-hover-border-color: #7e5bc4;
+    --bs-btn-active-bg: #7152b3;
+    --bs-btn-active-border-color: #7152b3;
+    --bs-btn-disabled-bg: #9370db;
+    --bs-btn-disabled-border-color: #9370db;
+}
+ 
+.btn-outline-primary {
+    --bs-btn-color: #9370db;
+    --bs-btn-border-color: #9370db;
+    --bs-btn-hover-bg: #9370db;
+    --bs-btn-hover-border-color: #9370db;
+    --bs-btn-active-bg: #7e5bc4;
+    --bs-btn-active-border-color: #7e5bc4;
+}
+ 
+.form-control:focus,
+.form-select:focus {
+    border-color: #b9a1ec;
+    box-shadow: 0 0 0 0.25rem rgba(147, 112, 219, 0.25);
+}
+ 
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+}
+ 
+.nav-link:hover,
+.nav-link.active {
+    color: #ece3fa !important;
+}
+ 
+button[type="submit"]:hover {
+    background-color: #7e5bc4 !important;
+}
+ 
+/* Pesan error validasi form */
+.error {
+    display: block;
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+ 
+/* Kolom pencarian real-time di halaman Daftar Buku/Anggota */
+.search-box {
+    margin-bottom: 1rem;
+}
+ 
+.search-box input {
+    max-width: 320px;
+}
+ 
+ 
+@media (max-width: 767.98px) {
+    #navMenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+    #navMenu.nav-open {
+        max-height: 300px;
+    }
+}
+ 
+/* ===== Flash Message ===== */
+.flash {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+ 
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+ 
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
