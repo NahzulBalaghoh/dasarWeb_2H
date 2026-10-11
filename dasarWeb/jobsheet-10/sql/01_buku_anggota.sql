@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS buku (
+    id SERIAL PRIMARY KEY,
+    judul VARCHAR(255) NOT NULL,
+    pengarang VARCHAR(255) NOT NULL,
+    tahun INT NOT NULL,
+    isbn VARCHAR(50),
+    stok INT NOT NULL DEFAULT 0,
+    kategori VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS anggota (
+    id SERIAL PRIMARY KEY,
+    nama VARCHAR(255) NOT NULL,
+    no_anggota VARCHAR(50) NOT NULL UNIQUE,
+    alamat TEXT,
+    no_hp VARCHAR(20)
+);
+
+-- Menambahkan kolom tanggal_ditambahkan ke tabel buku
+ALTER TABLE buku ADD COLUMN IF NOT EXISTS tanggal_ditambahkan TIMESTAMP DEFAULT NOW();
