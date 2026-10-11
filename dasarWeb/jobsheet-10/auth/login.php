@@ -30,6 +30,11 @@ include __DIR__ . '/../includes/header.php';
             <label for="password">Password <span class="wajib">*</span></label>
             <input type="password" id="password" name="password" required>
         </p>
+        <p>
+            <label class="ingat-saya">
+                <input type="checkbox" name="ingat" value="1"> Ingat saya selama 30 hari
+            </label>
+        </p>
         <button type="submit">Masuk</button>
     </form>
 

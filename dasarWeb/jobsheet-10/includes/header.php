@@ -2,6 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once __DIR__ . '/remember.php'; 
 $sudahLogin = isset($_SESSION['user_id']);
 
 $__jobsheetRoot = dirname(__DIR__);
@@ -40,7 +41,6 @@ $base = $__rel === '' ? '' : str_repeat('../', substr_count($__rel, '/') + 1);
 
             <div class="auth-status">
                 <?php if ($sudahLogin): ?>
-                    <span><?php echo htmlspecialchars($_SESSION['nama']); ?></span>
                     <a href="<?php echo $base; ?>auth/logout.php">Logout</a>
                 <?php else: ?>
                     <a href="<?php echo $base; ?>auth/login.php">Login</a>

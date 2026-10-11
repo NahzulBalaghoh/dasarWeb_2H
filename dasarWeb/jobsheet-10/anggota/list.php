@@ -5,6 +5,7 @@ include __DIR__ . '/../includes/header.php';
 
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
+$isAdmin = ($_SESSION['role'] ?? '') === 'admin';
 require __DIR__ . '/../includes/koneksi.php';
 
 $perPage = 5;
@@ -82,10 +83,14 @@ $daftarAnggota = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo ($anggota['jenis_kelamin'] ?? '') === 'Laki-Laki' ? 'v' : ''; ?></td>
                             <td><a href="edit.php?id=<?php echo $anggota['id']; ?>" class="btn-edit">Edit</a></td>
                             <td>
+                                <?php if ($isAdmin): ?>
                                 <form class="form-hapus" method="post" action="hapus.php">
                                     <input type="hidden" name="id" value="<?php echo $anggota['id']; ?>">
                                     <button type="submit" class="btn-hapus">Hapus</button>
                                 </form>
+                                <?php else: ?>
+                                <span>-</span>
+                                <?php endif; ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

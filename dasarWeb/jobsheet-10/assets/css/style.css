@@ -666,3 +666,17 @@ th { text-align: inherit; }
     text-align: center;
     margin: 1.25rem 0 0;
 }
+
+/* remember me */
+section label.ingat-saya {
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+section .ingat-saya input {
+    display: inline-block;
+    width: auto;
+    appearance: auto;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+}
