@@ -1,23 +1,15 @@
 <?php
-require __DIR__ . '/../includes/auth.php';
-session_start();
-require __DIR__ . '/../includes/koneksi.php';
+require __DIR__ . '/../includes/auth.php';            
+require __DIR__ . '/../includes/koneksi.php';         
 
-$id = $_POST['id'] ?? null;
-$judul = trim($_POST['judul'] ?? '');
+$judul = trim($_POST['judul'] ?? '');               
 $pengarang = trim($_POST['pengarang'] ?? '');
 $tahun = $_POST['tahun'] ?? '';
 $isbn = trim($_POST['isbn'] ?? '');
 $stok = $_POST['stok'] ?? '';
 $kategori = trim($_POST['kategori'] ?? '');
 
-if (!$id) {
-    header('Location: list.php');
-    exit;
-}
-
 $errors = [];
-
 if ($judul === '') {
     $errors[] = "Judul wajib diisi.";
 }
@@ -36,24 +28,29 @@ if ($isbn !== '' && !preg_match('/^[0-9-]+$/', $isbn)) {
 
 if (!empty($errors)) {
     $_SESSION['flash'] = ['type' => 'error', 'pesan' => implode(' ', $errors)];
-    header('Location: edit.php?id=' . urlencode($id));
+    header('Location: tambah.php');                  
     exit;
 }
 
-$stmt = $pdo->prepare(
-    "UPDATE buku SET judul = :judul, pengarang = :pengarang, tahun = :tahun,
-            isbn = :isbn, stok = :stok, kategori = :kategori
-     WHERE id = :id"
+$stmt = $pdo->prepare(                                
+    "INSERT INTO buku (judul, pengarang, tahun, isbn, stok, kategori)
+     VALUES (:judul, :pengarang, :tahun, :isbn, :stok, :kategori)"
 );
-$stmt->execute([
-    'judul' => $judul,
-    'pengarang' => $pengarang,
-    'tahun' => (int) $tahun,
-    'isbn' => $isbn,
-    'stok' => (int) $stok,
-    'kategori' => $kategori,
-    'id' => $id
-]);
+
+try {                                                
+    $stmt->execute([
+        'judul' => $judul,
+        'pengarang' => $pengarang,
+        'tahun' => (int) $tahun,
+        'isbn' => $isbn,
+        'stok' => (int) $stok,
+        'kategori' => $kategori,
+    ]);
+} catch (PDOException $e) {
+    $_SESSION['flash'] = ['type' => 'error', 'pesan' => 'Terjadi kesalahan database.'];
+    header('Location: tambah.php');
+    exit;
+}
 
 $_SESSION['flash'] = ['type' => 'success', 'pesan' => 'Buku berhasil ditambahkan.'];
 header('Location: list.php');

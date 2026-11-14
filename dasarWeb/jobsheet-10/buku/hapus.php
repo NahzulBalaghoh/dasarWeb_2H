@@ -12,7 +12,7 @@ $id = $_POST['id'] ?? null;
 
 if ($id) {
     $stmt = $pdo->prepare("DELETE FROM buku WHERE id = :id");
-    $stmt->execute(['id' => $id]);
+    $stmt->execute(['id' => (int) $id]);
     $_SESSION['flash'] = ['type' => 'success', 'pesan' => 'Buku berhasil dihapus.'];
 }
 
