@@ -5,6 +5,10 @@ require __DIR__ . '/includes/koneksi.php';
 $totalBuku = $pdo->query("SELECT COUNT(*) FROM buku")->fetchColumn();
 $totalAnggota = $pdo->query("SELECT COUNT(*) FROM anggota")->fetchColumn();
 $sedangDipinjam = $pdo->query("SELECT COUNT(*) FROM peminjaman WHERE status = 'dipinjam'")->fetchColumn();
+$bukuTerlambat = $pdo->query(
+    "SELECT COUNT(*) FROM peminjaman
+     WHERE status = 'dipinjam' AND CURRENT_DATE - tanggal_pinjam > 14"
+)->fetchColumn();
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 ?>
@@ -34,7 +38,7 @@ unset($_SESSION['flash']);
                 </div>
                 <div>
                     <h3>Buku Terlambat</h3>
-                    <p>3</p>
+                    <p><?php echo $bukuTerlambat; ?></p>
                 </div>
             </div>
         </section>
