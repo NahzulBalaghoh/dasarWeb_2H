@@ -333,6 +333,10 @@ section td {
 section td {
     vertical-align: middle;
 }
+
+section td.tengah {
+    text-align: center;
+}
  
 /* Garis tebal pemisah header dan isi tabel */
 section tbody {

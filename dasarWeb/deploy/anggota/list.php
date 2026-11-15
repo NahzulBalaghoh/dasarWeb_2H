@@ -80,8 +80,8 @@ $daftarAnggota = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo e($anggota['nama']); ?></td>
                             <td><?php echo e($anggota['alamat']); ?></td>
                             <td><?php echo e($anggota['no_hp']); ?></td>
-                            <td><?php echo ($anggota['jenis_kelamin'] ?? '') === 'Perempuan' ? 'v' : ''; ?></td>
-                            <td><?php echo ($anggota['jenis_kelamin'] ?? '') === 'Laki-Laki' ? 'v' : ''; ?></td>
+                            <td class="tengah"><?php echo ($anggota['jenis_kelamin'] ?? '') === 'Perempuan' ? 'v' : ''; ?></td>
+                            <td class="tengah"><?php echo ($anggota['jenis_kelamin'] ?? '') === 'Laki-Laki' ? 'v' : ''; ?></td>
                             <td><a href="edit.php?id=<?php echo $anggota['id']; ?>" class="btn-edit">Edit</a></td>
                             <td>
                                 <?php if ($isAdmin): ?>
