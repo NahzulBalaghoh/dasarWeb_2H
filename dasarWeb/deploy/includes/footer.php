@@ -1,7 +1,7 @@
 </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 SIMPUS-Mini &mdash;</p>
+        <p>&copy; 2026 SIMPUS-Mini &mdash Nahzul Balaghoh;</p>
     </footer>
 
     <script src="<?php echo $base; ?>assets/js/app.js"></script>
